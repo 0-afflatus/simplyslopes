@@ -1,10 +1,10 @@
 
--- Node will be called simplyslopes:slope_<subname>
+-- Node will be called simplyslopes:<subname>
 function simplyslopes.register_slope(subname, recipeitem, groups, images, description, snds)
 	
 	--x=minetest.registered_nodes[1].images,
 	
-	minetest.register_node(":simplyslopes:slope_" .. subname, {
+	minetest.register_node(":simplyslopes:" .. subname, {
 		description = description.." Slope",
 --		drawtype = "nodebox",
 		drawtype = "mesh",
@@ -37,7 +37,7 @@ function simplyslopes.register_slope(subname, recipeitem, groups, images, descri
 	})
 
 	minetest.register_craft({
-		output = 'simplyslopes:slope_' .. subname .. ' 6',
+		output = 'simplyslopes:' .. subname .. ' 6',
 		recipe = {
 			{recipeitem, "", ""},
 			{ "",recipeitem, ""},
@@ -46,9 +46,9 @@ function simplyslopes.register_slope(subname, recipeitem, groups, images, descri
 	})
 end
 
--- Node will be called simplyslopes:slopeinsidecorner_<subname>
+-- Node will be called simplyslopes:insidecorner_<subname>
 function simplyslopes.register_slopeinsidecorner(subname, recipeitem, groups, images, description, snds)
-	minetest.register_node(":simplyslopes:slopeinsidecorner_" .. subname, {
+	minetest.register_node(":simplyslopes:insidecorner_" .. subname, {
 		description = description.." Slope inside corner",
 --		drawtype = "nodebox",
 		drawtype = "mesh",
@@ -80,7 +80,7 @@ function simplyslopes.register_slopeinsidecorner(subname, recipeitem, groups, im
 	})
 
 	minetest.register_craft({
-		output = 'simplyslopes:slopeinsidecorner_' .. subname .. ' 5',
+		output = 'simplyslopes:insidecorner_' .. subname .. ' 5',
 		recipe = {
 			{recipeitem, recipeitem, ""},
 			{"", "", recipeitem},
@@ -89,9 +89,9 @@ function simplyslopes.register_slopeinsidecorner(subname, recipeitem, groups, im
 	})
 end
 
--- Node will be called simplyslopes:slopeinsidecorner2_<subname>
+-- Node will be called simplyslopes:insidecorner2_<subname>
 function simplyslopes.register_slopeinsidecorner2(subname, recipeitem, groups, images, description, snds)
-	minetest.register_node(":simplyslopes:slopeinsidecorner2_" .. subname, {
+	minetest.register_node(":simplyslopes:insidecorner2_" .. subname, {
 		description = description.." Slope inside 2 corner",
 --		drawtype = "nodebox",
 		drawtype = "mesh",
@@ -123,7 +123,7 @@ function simplyslopes.register_slopeinsidecorner2(subname, recipeitem, groups, i
 	})
 
 	minetest.register_craft({
-		output = 'simplyslopes:slopeinsidecorner2_' .. subname .. ' 6',
+		output = 'simplyslopes:insidecorner2_' .. subname .. ' 6',
 		recipe = {
 			{recipeitem, recipeitem, ""},
 			{"", "", recipeitem},
@@ -133,9 +133,9 @@ function simplyslopes.register_slopeinsidecorner2(subname, recipeitem, groups, i
 end
 
 
--- Node will be called simplyslopes:slopecorner_<subname>
+-- Node will be called simplyslopes:corner_<subname>
 function simplyslopes.register_slopecorner(subname, recipeitem, groups, images, description, snds)
-	minetest.register_node(":simplyslopes:slopecorner_" .. subname, {
+	minetest.register_node(":simplyslopes:corner_" .. subname, {
 		description = description.." Slope corner",
 --		drawtype = "nodebox",
 		drawtype = "mesh",
@@ -168,7 +168,7 @@ function simplyslopes.register_slopecorner(subname, recipeitem, groups, images, 
 	})
 
 	minetest.register_craft({
-		output = 'simplyslopes:slopecorner_' .. subname .. ' 6',
+		output = 'simplyslopes:corner_' .. subname .. ' 6',
 		recipe = {
 			{ "",recipeitem, ""},
 			{recipeitem,"",recipeitem},
@@ -176,9 +176,9 @@ function simplyslopes.register_slopecorner(subname, recipeitem, groups, images, 
 	})
 end
 
--- Node will be called simplyslopes:slopecorner_<subname>
+-- Node will be called simplyslopes:corner_<subname>
 function simplyslopes.register_slopecorner2(subname, recipeitem, groups, images, description, snds)
-	minetest.register_node(":simplyslopes:slopecorner2_" .. subname, {
+	minetest.register_node(":simplyslopes:corner2_" .. subname, {
 		description = description.." Slope corner 2",
 --		drawtype = "nodebox",
 		drawtype = "mesh",
@@ -212,7 +212,7 @@ function simplyslopes.register_slopecorner2(subname, recipeitem, groups, images,
 	})
 
 	minetest.register_craft({
-		output = 'simplyslopes:slopecorner2_' .. subname .. ' 6',
+		output = 'simplyslopes:corner2_' .. subname .. ' 6',
 		recipe = {
 			{ "",recipeitem, ""},
 			{"",recipeitem,recipeitem},

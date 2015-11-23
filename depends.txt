@@ -1,4 +1,9 @@
 default
+material?
+mineral?
+moretrees?
+plant?
+tree?
 lapis?
 bakedclay?
 wool?

@@ -5,6 +5,10 @@ simplyslopes.mod = "original"
 --= Load functions that creates the differents nodes.
 dofile(minetest.get_modpath("simplyslopes").."/functions.lua")
 
+--= Grail Test nodes
+dofile(minetest.get_modpath("simplyslopes").."/grailtest.lua")
+
+--[[
 --= Default Minetest
 dofile(minetest.get_modpath("simplyslopes").."/default_mod.lua")
 
@@ -62,7 +66,7 @@ end
 if minetest.get_modpath("ethereal") then
 	dofile(minetest.get_modpath("simplyslopes").."/ethereal_mod.lua")
 end
-
+]]
 
 
 print ("[MOD] SimplySlopes loaded")
