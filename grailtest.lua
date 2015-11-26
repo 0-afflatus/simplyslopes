@@ -32,6 +32,7 @@ simplyslopes.register_all2("material:stone_tile_split")
 simplyslopes.register_all2("material:whitestone_brick")
 simplyslopes.register_all2("material:white_stone_tile")
 simplyslopes.register_all2("material:white_stone_tile_split")
+simplyslopes.register_all2("material:bones")
 
 --= Minerals
 simplyslopes.register_all2("mineral:basalt")
