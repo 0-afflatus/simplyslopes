@@ -269,11 +269,12 @@ end
 
 
 function splitstring(inputstr)
-        if sep == nil then
+        --[[if sep == nil then
                 sep = "%s"
-        end
+        end]]
 	local sep = ':'
-        local t={} ; i=1
+        local t={} ; 
+	local i = 1
         for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
                 t[i] = str
                 i = i + 1
