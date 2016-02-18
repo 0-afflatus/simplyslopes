@@ -229,46 +229,15 @@ function simplyslopes.register_all(subname, recipeitem, groups, images, desc, sn
 	simplyslopes.register_slopeinsidecorner2(subname, recipeitem, groups, images, desc, snds)
 end
 
-function copy1(obj)
+-- Helper Functions 
+local function copy1(obj)
   if type(obj) ~= 'table' then return obj end
   local res = {}
   for k, v in pairs(obj) do res[copy1(k)] = copy1(v) end
   return res
 end
 
--- Nodes will be called simplyslopes:{stair,slab,corner,invcorner}_<subname>
-function simplyslopes.register_all2(recipeitem)
-	local s = splitstring(recipeitem)
-	local modname=s[1]
-	local subname=s[2]
-	
-	-- Bakedclay and wool mod name their blocks like "bakedclay:white"
-	if  modname == 'bakedclay' or modname == 'wool'
-	-- We must add modname to subname	
-	then subname = modname .. '_' .. subname
-	end
-
-	--local thisnode=minetest.registered_nodes["default:wood"]
-	local thisnode = copy1(minetest.registered_nodes[recipeitem])
-	
-	
-	if thisnode == nil 
-	then	   -- thisnode is empty
-	
-	else
-		thisnode.groups["not_in_creative_inventory"] = 1
-		simplyslopes.register_slope(subname, recipeitem, thisnode.groups, thisnode.tiles, thisnode.description, thisnode.sounds)
-		simplyslopes.register_slopecorner(subname, recipeitem, thisnode.groups, thisnode.tiles, thisnode.description, thisnode.sounds)		
-		simplyslopes.register_slopecorner2(subname, recipeitem, thisnode.groups, thisnode.tiles, thisnode.description, thisnode.sounds)
-		simplyslopes.register_slopeinsidecorner(subname, recipeitem, thisnode.groups, thisnode.tiles, thisnode.description, thisnode.sounds)
-		simplyslopes.register_slopeinsidecorner2(subname, recipeitem, thisnode.groups, thisnode.tiles, thisnode.description, thisnode.sounds)
-	end
-
-
-end
-
-
-function splitstring(inputstr)
+local function splitstring(inputstr)
         --[[if sep == nil then
                 sep = "%s"
         end]]
@@ -282,4 +251,28 @@ function splitstring(inputstr)
         return t
 end
 
--- Helper
+-- Nodes will be called simplyslopes:{stair,slab,corner,invcorner}_<subname>
+function simplyslopes.register_all2(recipeitem)
+	local s = splitstring(recipeitem)
+	local modname=s[1]
+	local subname=s[2]
+	
+	-- Bakedclay and wool mod name their blocks like "bakedclay:white"
+	if  modname == 'bakedclay' or modname == 'wool'
+	-- We must add modname to subname	
+	then subname = modname .. '_' .. subname
+	end
+	
+	--local thisnode=minetest.registered_nodes["default:wood"]
+	local thisnode = copy1(minetest.registered_nodes[recipeitem])
+		
+	if thisnode ~= nil then
+		thisnode.groups["not_in_creative_inventory"] = 1
+		simplyslopes.register_slope(subname, recipeitem, thisnode.groups, thisnode.tiles, thisnode.description, thisnode.sounds)
+		simplyslopes.register_slopecorner(subname, recipeitem, thisnode.groups, thisnode.tiles, thisnode.description, thisnode.sounds)		
+		simplyslopes.register_slopecorner2(subname, recipeitem, thisnode.groups, thisnode.tiles, thisnode.description, thisnode.sounds)
+		simplyslopes.register_slopeinsidecorner(subname, recipeitem, thisnode.groups, thisnode.tiles, thisnode.description, thisnode.sounds)
+		simplyslopes.register_slopeinsidecorner2(subname, recipeitem, thisnode.groups, thisnode.tiles, thisnode.description, thisnode.sounds)
+	end
+
+end
